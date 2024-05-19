@@ -1,8 +1,8 @@
 from rest_framework.routers import DefaultRouter
-from .views import OrganizationViewSet
+from .views import OrganizationsViewSet
 
 router = DefaultRouter()
-router.register(r'', OrganizationViewSet, basename='organizations')
+router.register(r'', OrganizationsViewSet, basename='organizations')
 
 urlpatterns = []
 urlpatterns += router.urls
