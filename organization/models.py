@@ -4,13 +4,15 @@ from common.enums import InstitutionType
 
 
 class Organization(models.Model):
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255, unique=True)
     description = models.TextField(blank=True, null=True)
     address = models.TextField()
     phone = models.CharField(max_length=20, blank=True, null=True)
     institution_type = models.CharField(
         max_length=20,
-        choices=[(tag.value, tag.name) for tag in InstitutionType]
+        choices=[(tag.value, tag.name) for tag in InstitutionType],
+        blank=True,
+        null=True,
     )
 
     def __str__(self):
